@@ -1,7 +1,7 @@
 jobtip
 ======
 
-This is test tast for JobTip company writted on Symfony 3.3
+This is test tast for JobTip company written on Symfony 3.3
 
 Requirements:
 
@@ -54,4 +54,4 @@ With ORM Doctrine this can be simply implemented.
 3) Add good design from some markups.
 4) Add Api to be able to use frontend frameworks in this project.
 
-That's pritty it.
+That's pretty it.
