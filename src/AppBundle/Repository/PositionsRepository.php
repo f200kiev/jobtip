@@ -12,4 +12,29 @@ use Doctrine\ORM\EntityRepository;
  */
 class PositionsRepository extends EntityRepository
 {
+    public function findPositions($positionId): array
+    {
+        $qb = $this->createQueryBuilder('p');
+
+        $result = $qb->select('p', 'c')
+          ->leftJoin('p.company', 'c')
+          ->where('p.id = :positionId')
+          ->setParameters(['positionId' => $positionId])
+          ->getQuery()
+          ->getResult();
+
+        return $result;
+    }
+
+    public function findAllPositions(): array
+    {
+        $qb = $this->createQueryBuilder('p');
+
+        $result = $qb->select('p', 'c')
+            ->leftJoin('p.company', 'c')
+            ->getQuery()
+            ->getResult();
+
+        return $result;
+    }
 }

@@ -1,0 +1,16 @@
+{% extends 'default/main.container.html.twig' %}
+
+{% block header %}
+    Vacant position overview
+{% endblock header %}
+
+{% block content %}
+    {% if position.company != null  %}
+        <div>Company: <a class="companyTitle" href="/companies/{{ position.company.id }}">{{ position.company.name }}</a></div>
+    {% endif %}
+    <div>Title: {{ position.title }}</div>
+    <div>JobDescription: {{ position.jobDescription }}</div>
+    <div>Email: {{ position.email }}</div>
+{% endblock content %}
+
+{% block stylesheets %}{{ parent() }}{% endblock stylesheets %}

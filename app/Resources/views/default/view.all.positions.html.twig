@@ -1,0 +1,24 @@
+{% extends 'default/main.container.html.twig' %}
+
+{% block header %}
+    Here is the list of vacant positions
+{% endblock header %}
+
+{% block content %}
+    <ul class="positionsList">
+        {% for position in positions %}
+            <li>
+                <a href="/reference/{{ position.id }}">
+                    <div class="positionTitle">
+                        {{ position.title }}
+                    {% if position.company != null %}
+                        ( {{ position.company.name }} )
+                    {% endif %}
+                    </div>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock content %}
+
+{% block stylesheets %}{{ parent() }}{% endblock stylesheets %}

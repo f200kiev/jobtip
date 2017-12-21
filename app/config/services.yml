@@ -35,8 +35,14 @@ services:
         arguments:
             - 'AppBundle\Entity\Companies'
 
-    positions.controller:
-        class: AppBundle\Controller\PositionsController
-        arguments:
-            - '@company.repository'
-            - '@jms_serializer'
+    position.repository:
+            class: AppBundle\Repository\PositionsRepository
+            factory: ['@doctrine.orm.entity_manager', getRepository]
+            arguments:
+                - 'AppBundle\Entity\Positions'
+
+#    positions.controller:
+#        class: AppBundle\Controller\MainController
+#        arguments:
+#            - '@position.repository'
+#            - '@jms_serializer'

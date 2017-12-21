@@ -1,0 +1,21 @@
+{% extends 'default/main.container.html.twig' %}
+
+{% block header %}
+    Here is the list companies
+{% endblock header %}
+
+{% block content %}
+    <ul class="companiesList">
+        {% for company in companies %}
+            <li>
+                <a href="/companies/{{ company.id }}">
+                    <div class="companyTitle">
+                        {{ company.name }}
+                    </div>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock content %}
+
+{% block stylesheets %}{{ parent() }}{% endblock stylesheets %}

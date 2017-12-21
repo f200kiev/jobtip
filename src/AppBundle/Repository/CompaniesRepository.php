@@ -12,16 +12,27 @@ use Doctrine\ORM\EntityRepository;
  */
 class CompaniesRepository extends EntityRepository
 {
-    /**
-     * @return array
-     */
-    public function findAllPositions()
+    public function findAllCompanies(): array
     {
         $qb = $this->createQueryBuilder('c');
 
         $result = $qb->select('c', 'p')
             ->leftJoin('c.positions', 'p')
-            ->orderBy('c.id', 'ASC')
+            ->orderBy('c.name', 'ASC')
+            ->getQuery()
+            ->getResult();
+
+        return $result;
+    }
+
+    public function findCompanies($companyId): array
+    {
+        $qb = $this->createQueryBuilder('c');
+
+        $result = $qb->select('c', 'p')
+            ->innerJoin('c.positions', 'p')
+            ->where('c.id = :companyId')
+            ->setParameters(['companyId' => $companyId])
             ->getQuery()
             ->getResult();
 

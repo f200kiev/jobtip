@@ -1,0 +1,17 @@
+{% extends 'default/main.container.html.twig' %}
+
+{% block header %}
+    Company {{ company.name }} overview
+{% endblock header %}
+
+{% block content %}
+     <ul class="positionsList">
+        {% for position in company.positions %}
+            <li>
+                <a href="/reference/{{ position.id }}">{{ position.title }}</a>
+            </li>
+        {% endfor %}
+     </ul>
+{% endblock content %}
+
+{% block stylesheets %}{{ parent() }}{% endblock stylesheets %}

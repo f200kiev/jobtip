@@ -9,7 +9,6 @@ AppBundle\Entity\Positions:
         email:
             - Email:
                 message: The email "{{ value }}" is not a valid email.
-                checkMX: true
 
 AppBundle\Entity\Companies:
      properties:

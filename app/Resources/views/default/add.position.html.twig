@@ -1,0 +1,13 @@
+{% extends 'default/main.container.html.twig' %}
+
+{% block header %}
+    Please add new vacant position
+{% endblock header %}
+
+{% block content %}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+{% endblock content %}
+
+{% block stylesheets %}{{ parent() }}{% endblock stylesheets %}

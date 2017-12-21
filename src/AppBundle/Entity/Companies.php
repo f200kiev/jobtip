@@ -64,6 +64,17 @@ class Companies
     }
 
     /**
+     * @param ArrayCollection $positions
+     * @return $this
+     */
+    public function setPositions(ArrayCollection $positions)
+    {
+        $this->positions = $positions;
+
+        return $this;
+    }
+
+    /**
      * @return ArrayCollection
      */
     public function getPositions()
