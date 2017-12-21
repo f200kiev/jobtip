@@ -1,0 +1,29 @@
+AppBundle\Entity\Positions:
+    type: entity
+    table: positions
+    repositoryClass: AppBundle\Repository\PositionsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+        jobDescription:
+            type: text
+            column: job_description
+        email:
+            type: string
+            length: 255
+    manyToOne:
+        company:
+            targetEntity: AppBundle\Entity\Companies
+            inversedBy: positions
+            cascade: ["persist"]
+            joinColumn:
+                name: reference
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

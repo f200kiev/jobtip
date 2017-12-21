@@ -1,0 +1,22 @@
+AppBundle\Entity\Companies:
+    type: entity
+    table: companies
+    repositoryClass: AppBundle\Repository\CompaniesRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+    oneToMany:
+        positions:
+            targetEntity: AppBundle\Entity\Positions
+            fetch: EAGER
+            cascade: ["persist"]
+            mappedBy: company
+            orphanRemoval: true
+    lifecycleCallbacks: {  }
